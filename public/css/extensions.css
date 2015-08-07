@@ -1,0 +1,13 @@
+.developer {
+  clear: both;
+}
+.developer img {
+  margin-right: 15px;
+  float: left;
+}
+.filename {
+  float:      right;
+  font-size:  0.7rem;
+  padding:    5px;
+  font-style: italic;
+}

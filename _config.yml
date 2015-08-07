@@ -1,0 +1,53 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:       '#bad304'
+tagline:     '— the betterplace devblog'
+description: 'Thoughts, news and interesting stuff from the betterplace development team.'
+url:         https://www.betterplace.org
+baseurl:     ''
+paginate:    3
+
+# About/contact
+author:
+  name:  betterplace developers
+  url:   https://twitter.com/betterplace_org
+  email: developers@betterplace.org
+
+developers:
+  - name: Daniel Hahn
+    gravatar: dha@betterplace.org
+    email: daniel.hahn@betterplace.org
+    github: averell23
+  - name: Florian Frank
+    gravatar: flori@ping.de
+    email: florian.frank@betterplace.org
+    github: flori
+  - name: Gregory Igelmund
+    gravatar: gig@betterplace.org
+    email: gregory.igelmund@betterplace.org
+    github: grekko
+  - name: Michael Quaas
+    gravatar: michael.quaas@betterplace.org
+    email: michael.quaas@betterplace.org
+    github: quaasi
+  - name: Johannes Opper
+    gravatar: johannes.opper@gmail.com
+    email: johannes.opper@betterplace.org
+    github: xijo
+  - name: Roman Cieslik
+    gravatar: rci@betterplace.org
+    email: roman.cieslik@betterplace.org
+    github: romancieslik
+  - name: Tobias Jordans
+    gravatar: tjo@betterplace.org
+    email: tobias.jordans@betterplace.org
+    github: tordans
+  - name: Anne Schanz
+    gravatar: write@anneschanz.de
+    email: anne.schanz@betterplace.org
+    github: aennchen

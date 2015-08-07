@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Provision runit with ansible &middot; #bad304
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/extensions.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0b">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Thoughts, news and interesting stuff from the betterplace development team.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/open-source/">Our open source projects</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/team/">Team</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://www.betterplace.org">betterplace</a>
+    <a class="sidebar-nav-item" href="https://api-docs.betterplace.org">API</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">#bad304</a>
+            <small>— the betterplace devblog</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Provision runit with ansible</h1>
+  <span class="post-date">08 Aug 2015</span>
+  <p>Recently we migrated our server provisioning from <a href="https://www.chef.io/">chef</a> to <a href="http://www.ansible.com/">ansible</a> and we wrote some ansible roles to run our services with <a href="http://smarden.org/runit/">runit</a>.</p>
+
+<p>In this quickstart blog post, I want to show you how to use them to get started with runit. Please note that we’re using CentOS 6.6 machines to provision to, and our Vagrant setup is built accordingly.</p>
+
+<p><strong>1. Installation</strong></p>
+
+<p>We usually use git submodules to put roles into one of our provisioning repos, one could of course use the <a href="http://docs.ansible.com/ansible/galaxy.html">ansible-galaxy</a> command as well.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>git submodule add https://github.com/betterplace/ansible-runit roles/runit
+<span class="nv">$ </span>git submodule add https://github.com/betterplace/ansible-runit-structure roles/runit_structure</code></pre></div>
+
+<p>Your roles directory should look something like this now:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>tree
+…
+<span class="p">|</span>-- roles
+<span class="p">|</span>   <span class="p">|</span>-- runit
+<span class="p">|</span>   <span class="p">|</span>-- runit_structure
+<span class="p">|</span>   <span class="p">|</span>-- nginx</code></pre></div>
+
+<p><strong>2. Add runit to your playbook</strong></p>
+
+<p>In your playbooks you should now use the runit role. Let’s assume you want to install and run <code>nginx</code>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># File: playbooks/webservers.yml</span>
+<span class="nn">---</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">webservers</span>
+  <span class="l-Scalar-Plain">roles</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">runit</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">nginx</span></code></pre></div>
+
+<p>and run your provisioning</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>ansible-playbook playbooks/webservers.yml</code></pre></div>
+
+<p><strong>3. Use runit for nginx</strong></p>
+
+<p>Require the structure role as dependency</p>
+
+<div class="filename">File: roles/nginx/meta/main.yml</div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">runit_structure</span><span class="p-Indicator">,</span> <span class="nv">runit_name</span><span class="p-Indicator">:</span> <span class="s">&#39;nginx&#39;</span> <span class="p-Indicator">}</span></code></pre></div>
+
+<p>Provision a runit run script</p>
+
+<div class="filename">File: roles/nginx/tasks/main.yml</div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Create runit run script</span>
+  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">src=run.j2</span>
+    <span class="l-Scalar-Plain">dest=/etc/sv/nginx/run</span>
+    <span class="l-Scalar-Plain">mode=0755</span></code></pre></div>
+
+<p>And add the run script template to use</p>
+
+<div class="filename">File: roles/nginx/templates/run.j2</div>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/bin/sh</span>
+
+<span class="nb">exec </span>2&gt;<span class="p">&amp;</span>1
+<span class="nb">exec</span> /usr/sbin/nginx -c /etc/nginx/nginx.conf -g <span class="s2">&quot;daemon off;&quot;</span></code></pre></div>
+
+<p>Provision again <code>$ ansible-playbook playbooks/webservers.yml</code> and your done: nginx is already running because runit noticed your run script and started it. From now on it’ll keep your nginx up and running!</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/08/07/introducing-devblog/">
+            Introducing the betterplace devblog
+            <small>07 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
