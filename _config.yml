@@ -12,6 +12,8 @@ url:         https://www.betterplace.org
 baseurl:     /blog
 paginate:    3
 
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+
 # About/contact
 author:
   name:  betterplace developers
