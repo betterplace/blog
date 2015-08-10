@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>#bad304</title>
- <link href="https://www.betterplace.org/atom.xml" rel="self"/>
- <link href="https://www.betterplace.org/"/>
- <updated>2015-08-10T12:15:24+02:00</updated>
+ <link href="https://www.betterplace.org/blog/atom.xml" rel="self"/>
+ <link href="https://www.betterplace.org/blog/"/>
+ <updated>2015-08-10T14:32:54+02:00</updated>
  <id>https://www.betterplace.org</id>
  <author>
    <name>betterplace developers</name>
@@ -16,7 +16,7 @@
    <title>Provision runit with ansible</title>
    <link href="https://www.betterplace.org/2015/08/08/ansible-runit/"/>
    <updated>2015-08-08T00:00:00+02:00</updated>
-   <id>https://www.betterplace.org/2015/08/08/ansible-runit</id>
+   <id>https://www.betterplace.org/blog/2015/08/08/ansible-runit</id>
    <content type="html">&lt;p&gt;Recently we migrated our server provisioning from &lt;a href=&quot;https://www.chef.io/&quot;&gt;chef&lt;/a&gt; to &lt;a href=&quot;http://www.ansible.com/&quot;&gt;ansible&lt;/a&gt; and we wrote some ansible roles to run our services with &lt;a href=&quot;http://smarden.org/runit/&quot;&gt;runit&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this quickstart blog post, I want to show you how to use them to get started with runit. Please note that we’re using CentOS 6.6 machines to provision to, and our Vagrant setup is built accordingly.&lt;/p&gt;
@@ -90,7 +90,7 @@
    <title>Introducing the betterplace devblog</title>
    <link href="https://www.betterplace.org/2015/08/07/introducing-devblog/"/>
    <updated>2015-08-07T00:00:00+02:00</updated>
-   <id>https://www.betterplace.org/2015/08/07/introducing-devblog</id>
+   <id>https://www.betterplace.org/blog/2015/08/07/introducing-devblog</id>
    <content type="html">&lt;p&gt;Named after our fine base color hexcode, here it is: &lt;em&gt;the betterplace devblog&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;We’ll be roughly about the following:&lt;/p&gt;

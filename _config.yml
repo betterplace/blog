@@ -9,7 +9,7 @@ title:       '#bad304'
 tagline:     '— the betterplace devblog'
 description: 'Thoughts, news and interesting stuff from the betterplace development team.'
 url:         https://www.betterplace.org
-baseurl:     ''
+baseurl:     /blog
 paginate:    3
 
 # About/contact
