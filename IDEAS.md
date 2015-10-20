@@ -14,3 +14,9 @@ Some questions we might answer w/ this post:
 - What's the problem?
 - How can you discover problems like this?
 - How did we solve it?
+
+## Different approaches to object versioning
+- Why do we want/need that?
+- What were the different solutions throughout history?
+- What are we doing now?
+- What are still unsolved problems?
