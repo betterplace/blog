@@ -10,4 +10,7 @@ Some questions we might answer w/ this post:
 - What are our general learnings (which are valuable to share with others)?
 - Are we happy with our changes? Do we recommend it to other?
 
-
+## Less known rails feature "inverse_of"
+- What's the problem?
+- How can you discover problems like this?
+- How did we solve it?
