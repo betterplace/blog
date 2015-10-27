@@ -20,3 +20,8 @@ Some questions we might answer w/ this post:
 - What were the different solutions throughout history?
 - What are we doing now?
 - What are still unsolved problems?
+
+## Explain carrierwave process options
+- resize_to_fit
+- resize_to_fill
+- ..
