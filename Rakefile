@@ -27,4 +27,4 @@ task :publish => [:generate] do
   end
 end
 
-task :default => :publish
+task :default => :generate
