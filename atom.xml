@@ -1,28 +1,321 @@
----
-layout: null
----
-
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>{{ site.title }}</title>
- <link href="{{ site.url }}{{ site.baseurl }}/atom.xml" rel="self"/>
- <link href="{{ site.url }}{{ site.baseurl }}/"/>
- <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>{{ site.url }}</id>
+ <title>#bad304</title>
+ <link href="https://www.betterplace.org/blog/atom.xml" rel="self"/>
+ <link href="https://www.betterplace.org/blog/"/>
+ <updated>2016-07-22T11:31:37+02:00</updated>
+ <id>https://www.betterplace.org</id>
  <author>
-   <name>{{ site.author.name }}</name>
-   <email>{{ site.author.email }}</email>
+   <name>betterplace developers</name>
+   <email>developers@betterplace.org</email>
  </author>
 
- {% for post in site.posts %}
+ 
  <entry>
-   <title>{{ post.title }}</title>
-   <link href="{{ site.url }}{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>{{ site.url }}{{ site.baseurl }}{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
+   <title>About getting hired - Junior positions</title>
+   <link href="https://www.betterplace.org/2016/07/08/about-getting-hired/"/>
+   <updated>2016-07-08T00:00:00+02:00</updated>
+   <id>https://www.betterplace.org/blog/2016/07/08/about-getting-hired</id>
+   <content type="html">&lt;p&gt;If people in software professions talk about getting hired, they tend to get
+very opinionated.&lt;/p&gt;
+
+&lt;p&gt;Any developer can tell you stories of being hounded by more or
+less competent recruiters, some people will share their stories how recruiting is
+supposedly completely merciless and yet others seem to ascend to a junior position with
+minimal experience and training.&lt;/p&gt;
+
+&lt;p&gt;I’d like to start a little series on how hiring works at betterplace.org, and
+in general, so that things get a little less mystifying for everyone involved.&lt;/p&gt;
+
+&lt;p&gt;As the topic is broad, we’ll tackle it one step at a time.&lt;/p&gt;
+
+&lt;h1 id=&quot;part-one-your-first-junior-position&quot;&gt;Part one: Your first junior position&lt;/h1&gt;
+
+&lt;p&gt;If you are new to the trade - especially if you’re not originally from a
+“techie background” - you’re probably wondering what it takes to get that first
+job in development.&lt;/p&gt;
+
+&lt;h2 id=&quot;good-news-we-want-you&quot;&gt;Good news: We want you&lt;/h2&gt;
+
+&lt;p&gt;Software developers are in high demand.&lt;/p&gt;
+
+&lt;p&gt;This is especially good for junior
+people who come from different walks of life. For you it means that recruiters
+have more time per resume, and it is less likely that you’re filtered out
+solely on formal criteria (e.g. “has no degree”).&lt;/p&gt;
+
+&lt;p&gt;It also means that there are more companies willing to train you on the job (as
+experienced people are hard to come by).&lt;/p&gt;
+
+&lt;p&gt;Make no mistake, though: I’d still encourage you to get all the education you
+can get - if you’re fresh out of school by all means do enroll in college and
+get that degree! (Prefer a
+&lt;a href=&quot;https://www.youtube.com/watch?v=q2o282JIr_E&quot;&gt;practice-oriented program&lt;/a&gt;, though,
+unless you’d like to go into research…)&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-required-to-get-started&quot;&gt;What is required to get started?&lt;/h2&gt;
+
+&lt;p&gt;Even though the “formal” requirements are quite relaxed right now, any
+company hiring you &lt;em&gt;will&lt;/em&gt; have “hard” requirements on what they need from
+new recruits.&lt;/p&gt;
+
+&lt;p&gt;At betterplace these go something like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;You are able to program.&lt;/strong&gt; And by that we mean that your are able to take
+a description of a problem and formulate a solution in code. A lot of our
+interviewing is about finding out just that.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;You understand the &lt;em&gt;basics&lt;/em&gt; of the “theory”&lt;/strong&gt; behind software development.
+In our daily work we deal with stuff like objects, classes, exceptions,
+inheritance, network protocols and so on. &lt;em&gt;You don’t need to be an expert&lt;/em&gt; on
+those things yet, but you need to have a basic idea of what those are and why
+they exist.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;We want you on our team&lt;/strong&gt;. Don’t get me wrong: This does &lt;strong&gt;not&lt;/strong&gt; mean you
+have to be “just like us”. We do welcome diversity - both in background and
+in approach.
+Once we hire you, we will be around each other for hours every day. We will have
+to review your code, live with your decisions and you with ours.
+Thus we need to trust that we’ll have respectful and productive
+interactions with you in the long run.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Other places have other priorities - but any sane company will put those into
+their job descriptions.&lt;/p&gt;
+
+&lt;h3 id=&quot;and-if-i-dont-meet-the-requirements&quot;&gt;And if I don’t meet the requirements?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;First off, don’t give up just yet.&lt;/strong&gt; Chances are
+that as a “junior” person, you fall into one of two groups:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;You just wrote your small app. You are amazed how easy that was, you are
+really excited about the things you can achieve and you think you’ll be
+able to do anything and everything within no time.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Or:&lt;/strong&gt; You already learned a lot. You have also learned that there are many
+things you don’t know yet, and that some problems are just &lt;em&gt;hard&lt;/em&gt;. You may
+experience some self-doubt ’cause you’re not so sure if you’ll ever be as good as
+the folks you learn from.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In case one, just take a deep breath and take a reality check.
+It’s great that you just took your first step into the world of software,
+but there’s probably a lot to learn for you. The world will still be there when
+you are ready.&lt;/p&gt;
+
+&lt;p&gt;In the second case you’re probably doing better than you think you are. So don’t
+throw in the towel.&lt;/p&gt;
+
+&lt;p&gt;If you have a mentor, you may just want to get some honest feedback from her or
+him about where you stand.&lt;/p&gt;
+
+&lt;p&gt;And even if you’re not ready &lt;em&gt;yet&lt;/em&gt;, remember: Developing software is a skill you
+can learn, not an innate ability. It just takes dedicated work (and a lot
+of practice) to succeed.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-do-i-apply&quot;&gt;How do I apply?&lt;/h2&gt;
+
+&lt;p&gt;The first step is dead simple. You just send us an email explaining why
+you want to work for us and what you can do, your CV and &lt;em&gt;a link to some
+code that you wrote&lt;/em&gt; (e.g. github).&lt;/p&gt;
+
+&lt;p&gt;Formalities include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Your email is your “cover” letter. No need for a separate document, really&lt;/li&gt;
+  &lt;li&gt;Your CV should be attached as a PDF. We don’t really enjoy dealing with weird
+file formats, or having to visit the “CV web page” you spent so much time on&lt;/li&gt;
+  &lt;li&gt;The CV should be structured like a standard CV&lt;/li&gt;
+  &lt;li&gt;We don’t really need your picture, your marital status or your parents’
+occupation. We will also skip any motivational blurb you chose to put into
+your CV&lt;/li&gt;
+  &lt;li&gt;We &lt;strong&gt;do&lt;/strong&gt; want to know why you chose to apply to betterplace.org&lt;/li&gt;
+  &lt;li&gt;If you’re not a native speaker, we’d like to know how good your German
+and/or English language skills are&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-happens-next&quot;&gt;What happens next?&lt;/h2&gt;
+
+&lt;p&gt;When we receive your application, you’ll get a friendly email that we received
+it. Then we will review your application and your github repo (or other code
+you sent). We may get in touch via email if there are open questions.&lt;/p&gt;
+
+&lt;p&gt;If we like your application, you will move on to a first Skype interview and
+eventually to the technical interviews. But this is stuff for another blog post.&lt;/p&gt;
+
+&lt;h2 id=&quot;when-do-i-hear-back-from-you&quot;&gt;When do I hear back from you?&lt;/h2&gt;
+
+&lt;p&gt;We are aware that you’re probably holding your breath. Especially if this is your
+first job. And you’ll immediately get a friendly confirmation that we received your
+application.&lt;/p&gt;
+
+&lt;p&gt;Don’t be overly concerned if, after that, we take a little while to get back to
+you. We are just a small team, and we have to make time to review your code and
+CV.&lt;/p&gt;
+
+&lt;p&gt;Still, if at any time you feel like we have forgotten you, just ask us for an
+update.&lt;/p&gt;
+
+&lt;p&gt;The same goes if you &lt;em&gt;really&lt;/em&gt; need quick feedback (e.g. you have to make
+a decision by day x). We will try our best to speed things up in that case.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-not-to-do&quot;&gt;What &lt;strong&gt;not&lt;/strong&gt; to do…&lt;/h2&gt;
+
+&lt;p&gt;Even though we are happy about every application, there are a few things that’ll
+quickly get you kicked out of the process:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Don’t be generic&lt;/strong&gt;. &lt;em&gt;“To whom it may concern”&lt;/em&gt; is &lt;strong&gt;not&lt;/strong&gt;
+something that gets you off to a good start: Your applications are read by an
+actual person. Her name is Claudia. And if you had actually read our job posting
+you would know that. Why should we be interested in you if you’re not even
+interested in sending us a personalized email? Applications that look like
+copied and pasted just make you look bad.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Don’t copy and paste into your github repositories&lt;/strong&gt;. We very much look into the
+code that you have on github. After all, your coding is a major part of why we want hire you.
+We like your repo to be authentic. Which means it should be clear from the
+git history what your contributions are, and what you got from elsewhere. It is
+totally fine to fork someones code and improve it, and to collaborate on code.
+Just &lt;em&gt;never&lt;/em&gt; copy stuff from other repos, or from Stackoverflow, or wherever
+and check it in under your own name.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Don’t use an inappropriate format or tone&lt;/strong&gt;. For example: Emails that contain
+nothing except “Hi I’m Al. Saw your job posting. Just contact me on
+skype if you’re interested.” are not going to generate much interest, to put it mildly.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-we-dont-do&quot;&gt;What &lt;em&gt;we&lt;/em&gt; don’t do&lt;/h2&gt;
+
+&lt;p&gt;There are some things that people are often annoyed or scared about, that we
+won’t do to you:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ask brainteaser questions&lt;/strong&gt; Actually, nobody in their sane mind uses those any
+more. We &lt;em&gt;will&lt;/em&gt; ask simple coding questions during our Skype interviews, but
+nothing with pirates, goats or foxes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Whiteboard coding&lt;/strong&gt; Yes, we &lt;em&gt;will&lt;/em&gt; have you do coding exercises.
+We &lt;em&gt;will&lt;/em&gt; also expect you to use a whiteboard or paper to explain things. But we
+will not force you to develop code only with a whiteboard or paper.
+You may jot down code if you chose to, but you’ll always have the option to use
+a proper editor and run the code you write.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;find-out-more&quot;&gt;Find out more&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/about/careers/students/guide-to-technical-development.html&quot;&gt;Google guide to developing technical skills&lt;/a&gt;.
+ It’s well worth to check out their site. They offer a lot of insights into their
+ hiring process. And even if it is different from ours (or that of other
+ companies) much of it applies in general.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=-4KKqYuYHno&amp;amp;list=PLE7tQUdRKcyZGYLfj6oRQWPxB6ijg1YsC&amp;amp;index=37&quot;&gt;Rails Conf video about getting your first Rails job&lt;/a&gt;
+ by Molly Black. Great general advice.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.joelonsoftware.com/articles/ResumeRead.html&quot;&gt;Getting Your Résumé Read&lt;/a&gt;,
+by Joel Spolsky. Very direct, slightly outdated. While you may do better than
+his candidates at place that gets less résumés than Joel (we do), this is still
+a worthwhile glimpse into the mind of someone who reads those things.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
  </entry>
- {% endfor %}
+ 
+ <entry>
+   <title>Provision runit with ansible</title>
+   <link href="https://www.betterplace.org/2015/08/08/ansible-runit/"/>
+   <updated>2015-08-08T00:00:00+02:00</updated>
+   <id>https://www.betterplace.org/blog/2015/08/08/ansible-runit</id>
+   <content type="html">&lt;p&gt;Recently we migrated our server provisioning from &lt;a href=&quot;https://www.chef.io/&quot;&gt;chef&lt;/a&gt; to &lt;a href=&quot;http://www.ansible.com/&quot;&gt;ansible&lt;/a&gt; and we wrote some ansible roles to run our services with &lt;a href=&quot;http://smarden.org/runit/&quot;&gt;runit&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this quickstart blog post, I want to show you how to use them to get started with runit. Please note that we’re using CentOS 6.6 machines to provision to, and our Vagrant setup is built accordingly.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Installation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We usually use git submodules to put roles into one of our provisioning repos, one could of course use the &lt;a href=&quot;http://docs.ansible.com/ansible/galaxy.html&quot;&gt;ansible-galaxy&lt;/a&gt; command as well.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git submodule add https://github.com/betterplace/ansible-runit roles/runit
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git submodule add https://github.com/betterplace/ansible-runit-structure roles/runit_structure&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Your roles directory should look something like this now:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;tree
+…
+|-- roles
+|   |-- runit
+|   |-- runit_structure
+|   |-- nginx&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Add runit to your playbook&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In your playbooks you should now use the runit role. Let’s assume you want to install and run &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# File: playbooks/webservers.yml&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hosts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;webservers&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;roles&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;runit&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and run your provisioning&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ansible-playbook playbooks/webservers.yml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Use runit for nginx&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Require the structure role as dependency&lt;/p&gt;
+
+&lt;div class=&quot;filename&quot;&gt;File: roles/nginx/meta/main.yml&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;role&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;runit_structure&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;runit_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;nginx&#39;&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Provision a runit run script&lt;/p&gt;
+
+&lt;div class=&quot;filename&quot;&gt;File: roles/nginx/tasks/main.yml&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Create runit run script&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;src=run.j2&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;dest=/etc/sv/nginx/run&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;mode=0755&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And add the run script template to use&lt;/p&gt;
+
+&lt;div class=&quot;filename&quot;&gt;File: roles/nginx/templates/run.j2&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;2&amp;gt;&amp;amp;1
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; /usr/sbin/nginx -c /etc/nginx/nginx.conf -g &lt;span class=&quot;s2&quot;&gt;&quot;daemon off;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Provision again &lt;code class=&quot;highlighter-rouge&quot;&gt;$ ansible-playbook playbooks/webservers.yml&lt;/code&gt; and your done: nginx is already running because runit noticed your run script and started it. From now on it’ll keep your nginx up and running!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introducing the betterplace devblog</title>
+   <link href="https://www.betterplace.org/2015/08/07/introducing-devblog/"/>
+   <updated>2015-08-07T00:00:00+02:00</updated>
+   <id>https://www.betterplace.org/blog/2015/08/07/introducing-devblog</id>
+   <content type="html">&lt;p&gt;Named after our fine base color hexcode, here it is: &lt;em&gt;the betterplace devblog&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;We’ll be roughly about the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+  &lt;li&gt;Rails&lt;/li&gt;
+  &lt;li&gt;Javascript&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;Scrum&lt;/li&gt;
+  &lt;li&gt;Ansible&lt;/li&gt;
+  &lt;li&gt;bash&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have fun!&lt;/p&gt;
+</content>
+ </entry>
+ 
 
 </feed>
