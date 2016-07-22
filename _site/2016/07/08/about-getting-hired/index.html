@@ -11,7 +11,7 @@
 
   <title>
     
-      #bad304 &middot; — the betterplace devblog
+      About getting hired - Junior positions &middot; #bad304
     
   </title>
 
@@ -97,18 +97,10 @@
       </div>
 
       <div class="container content">
-        <div class="posts">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog//2016/07/08/about-getting-hired/">
-        About getting hired - Junior positions
-      </a>
-    </h1>
-
-    <span class="post-date">08 Jul 2016</span>
-
-    <p>If people in software professions talk about getting hired, they tend to get
+        <div class="post">
+  <h1 class="post-title">About getting hired - Junior positions</h1>
+  <span class="post-date">08 Jul 2016</span>
+  <p>If people in software professions talk about getting hired, they tend to get
 very opinionated.</p>
 
 <p>Any developer can tell you stories of being hounded by more or
@@ -309,124 +301,32 @@ his candidates at place that gets less résumés than Joel (we do), this is stil
 a worthwhile glimpse into the mind of someone who reads those things.</li>
 </ul>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog//2015/08/08/ansible-runit/">
-        Provision runit with ansible
-      </a>
-    </h1>
-
-    <span class="post-date">08 Aug 2015</span>
-
-    <p>Recently we migrated our server provisioning from <a href="https://www.chef.io/">chef</a> to <a href="http://www.ansible.com/">ansible</a> and we wrote some ansible roles to run our services with <a href="http://smarden.org/runit/">runit</a>.</p>
-
-<p>In this quickstart blog post, I want to show you how to use them to get started with runit. Please note that we’re using CentOS 6.6 machines to provision to, and our Vagrant setup is built accordingly.</p>
-
-<p><strong>1. Installation</strong></p>
-
-<p>We usually use git submodules to put roles into one of our provisioning repos, one could of course use the <a href="http://docs.ansible.com/ansible/galaxy.html">ansible-galaxy</a> command as well.</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="gp">$ </span>git submodule add https://github.com/betterplace/ansible-runit roles/runit
-<span class="gp">$ </span>git submodule add https://github.com/betterplace/ansible-runit-structure roles/runit_structure</code></pre></figure>
-
-<p>Your roles directory should look something like this now:</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="gp">$ </span>tree
-…
-|-- roles
-|   |-- runit
-|   |-- runit_structure
-|   |-- nginx</code></pre></figure>
-
-<p><strong>2. Add runit to your playbook</strong></p>
-
-<p>In your playbooks you should now use the runit role. Let’s assume you want to install and run <code class="highlighter-rouge">nginx</code>:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># File: playbooks/webservers.yml</span>
-<span class="nn">---</span>
-<span class="pi">-</span> <span class="s">hosts</span><span class="pi">:</span> <span class="s">webservers</span>
-  <span class="s">roles</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">runit</span>
-    <span class="pi">-</span> <span class="s">nginx</span></code></pre></figure>
-
-<p>and run your provisioning</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="gp">$ </span>ansible-playbook playbooks/webservers.yml</code></pre></figure>
-
-<p><strong>3. Use runit for nginx</strong></p>
-
-<p>Require the structure role as dependency</p>
-
-<div class="filename">File: roles/nginx/meta/main.yml</div>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
-<span class="s">dependencies</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="pi">{</span> <span class="nv">role</span><span class="pi">:</span> <span class="nv">runit_structure</span><span class="pi">,</span> <span class="nv">runit_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">nginx'</span> <span class="pi">}</span></code></pre></figure>
-
-<p>Provision a runit run script</p>
-
-<div class="filename">File: roles/nginx/tasks/main.yml</div>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
-<span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Create runit run script</span>
-  <span class="s">template</span><span class="pi">:</span>
-    <span class="s">src=run.j2</span>
-    <span class="s">dest=/etc/sv/nginx/run</span>
-    <span class="s">mode=0755</span></code></pre></figure>
-
-<p>And add the run script template to use</p>
-
-<div class="filename">File: roles/nginx/templates/run.j2</div>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/bin/sh</span>
-
-<span class="nb">exec </span>2&gt;&amp;1
-<span class="nb">exec</span> /usr/sbin/nginx -c /etc/nginx/nginx.conf -g <span class="s2">"daemon off;"</span></code></pre></figure>
-
-<p>Provision again <code class="highlighter-rouge">$ ansible-playbook playbooks/webservers.yml</code> and your done: nginx is already running because runit noticed your run script and started it. From now on it’ll keep your nginx up and running!</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/blog//2015/08/07/introducing-devblog/">
-        Introducing the betterplace devblog
-      </a>
-    </h1>
-
-    <span class="post-date">07 Aug 2015</span>
-
-    <p>Named after our fine base color hexcode, here it is: <em>the betterplace devblog</em>.</p>
-
-<p>We’ll be roughly about the following:</p>
-
-<ul>
-  <li>Ruby</li>
-  <li>Rails</li>
-  <li>Javascript</li>
-  <li>CSS</li>
-  <li>Scrum</li>
-  <li>Ansible</li>
-  <li>bash</li>
-</ul>
-
-<p>Have fun!</p>
-
-  </div>
-  
 </div>
 
-<div class="pagination">
-  
-    <span class="pagination-item older">Older</span>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/blog/2015/08/08/ansible-runit/">
+            Provision runit with ansible
+            <small>08 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/blog/2015/08/07/introducing-devblog/">
+            Introducing the betterplace devblog
+            <small>07 Aug 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
 </div>
-
 
       </div>
     </div>

@@ -2,7 +2,6 @@
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
-relative_permalinks: true
 
 # Setup
 title:       '#bad304'
@@ -11,6 +10,8 @@ description: 'Thoughts, news and interesting stuff from the betterplace developm
 url:         https://www.betterplace.org
 baseurl:     /blog
 paginate:    3
+
+gems: [jekyll-paginate]
 
 exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
 
